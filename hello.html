@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- {{}} = 템플릿 문법 -->
+    <div id="root">
+        <h1 v-if=clicked>{{message + ', ' +name+'!'}}</h1>
+        <button v-else v-on:click="onClicked">안녕</button>
+        <button v-on:click='goNaver'>NAVER</button>
+        <!-- <a v-bind:href='address'>NAVER</a> -->
+        <!-- v-bind는 :로 줄여서 쓸 수 있다.-->
+        <a :href='address'>NAVER</a>
+        <p>나이를 입력하세요.</p>
+        <input v-model='age'>
+        <p v-if='age==""'></p>
+        <p v-else-if="age>=20">adult</p>
+        <p v-else-if="age<20 && age>12">teenager</p>
+        <p v-else>kids</p>
+        <ul>
+            <li v-for="todo in todos">{{todo.text}}</li>
+        </ul>
+        <div>
+            <p v-for="todo in todos">{{todo.text}}</p>
+        </div>
+        <!-- 인덱스번호 출력, 원하는 인덱스의 값만 출력하는 방법 -->
+        <p>
+            검색할 인덱스를 입력하세요.
+        </p>
+        
+        <input v-model='input'>
+        <div v-for="(todo, index) in todos">
+            <p v-if='index==input && !input==0'>{{index}}번 인덱스는 {{todo.text}}입니다.</p>
+            <p v-else></p>
+        </div>
+        <div v-for="(value, name) in user">
+            <p>{{name}} - {{value}}</p>
+        </div>
+        <pl v-for="n in 10">
+            {{n}}
+        </pl>
+        <br>
+        <br>
+        {{counter}}
+        <button @click="addCount">+</button>
+        <p>{{message2}}</p>
+        <ul>
+            <li v-for="user in users">
+                <p @click="sayHi(user.name)">{{user.name}}</p>
+            </li>
+        </ul>
+        <input v-model="comment">
+        <p>{{comment}}</p>
+        <input type="checkbox" id="checkbox_one" value="one" v-model="values">
+        <lavel for="checkbox_one">one</lavel>
+        <input type="checkbox" id="checkbox_two" value="two" v-model="values">
+        <lavel for="checkbox_two">two</lavel>
+        <input type="checkbox" id="checkbox_three" value="three" v-model="values">
+        <lavel for="checkbox_three">three</lavel>
+        <p>Checked : {{values}}</p>
+        <!-- 엔터칠때바뀜 v-model.lazy -->
+        <input v-model.lazy="lazyValue">
+        <p>{{lazyValue}}</p>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script src="hello.js"></script>
+</body>
+</html>
