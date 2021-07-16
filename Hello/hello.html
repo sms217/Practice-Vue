@@ -16,12 +16,15 @@
         <!-- <a v-bind:href='address'>NAVER</a> -->
         <!-- v-bind는 :로 줄여서 쓸 수 있다.-->
         <a :href='address'>NAVER</a>
-        <p>나이를 입력하세요.</p>
-        <input v-model='age'>
-        <p v-if='age==""'></p>
-        <p v-else-if="age>=20">adult</p>
-        <p v-else-if="age<20 && age>12">teenager</p>
-        <p v-else>kids</p>
+        <p>
+            
+            <input v-model.nmber='age' type="number" placeholder="나이를 입력하세요.">
+            <!-- <p v-if='age==""'></p>
+                <p v-else-if="age>=20">adult</p>
+                <p v-else-if="age<20 && age>12">teenager</p>
+                    <p v-else>kids</p> -->
+                    <p>{{checkAge}}</p>
+        </p>
         <ul>
             <li v-for="todo in todos">{{todo.text}}</li>
         </ul>
@@ -66,6 +69,7 @@
         <!-- 엔터칠때바뀜 v-model.lazy -->
         <input v-model.lazy="lazyValue">
         <p>{{lazyValue}}</p>
+        <p>{{user_info}}</p>
     </div>
 
     <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>

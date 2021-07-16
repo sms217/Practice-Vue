@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <post></post>
+    </div>
+    
+    <!-- <div id='app'>
+        <p>
+            <input type='text' v-model='user' placeholder='작성자'>
+        </p>
+        <p>
+
+            <input type='text' v-model='comment' placeholder='내용'>
+        </p>
+        <button @click='save'>Save</button><hr>
+        <ul>
+            <li v-for='msg in messages'>
+                <p>
+                    보내는 사람 : {{msg.user}} <p>
+
+                        {{msg.comment}}
+                    </p>
+                </p>
+            </li>
+        </ul>
+    </div> -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        Vue.component('post',{
+            template:`      <div>    
+                                <p>
+                                    <input type='text' v-model='user' placeholder='작성자'>
+                                </p>
+                                <p>
+
+                                    <input type='text' v-model='comment' placeholder='내용'>
+                                </p>
+                                <button @click='save'>Save</button><hr>
+                                <ul>
+                                    <li v-for='msg in messages'>
+                                        <p>
+                                            보내는 사람 : {{msg.user}} <p>
+
+                                                {{msg.comment}}
+                                            </p>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>`,
+            data(){
+                return {
+                        user:null,
+                        comment:null,
+                        messages:[]
+                        };
+            },
+            methods:{
+                save(){
+                    const message={
+                        user:this.user,
+                        comment:this.comment,
+                    };
+
+                    this.messages.unshift(message);
+                    this.user=null;
+                    this.comment=null;
+                }
+             }  
+            
+
+        });
+
+        const app = new Vue({
+            el:'#app',
+            data : {
+            user:null,
+            comment:null,
+            messages:[]
+            },
+            methods:{
+                save(){
+                    const message={
+                        user:this.user,
+                        comment:this.comment,
+                    };
+
+                    this.messages.unshift(message);
+                    this.user=null;
+                    this.comment=null;
+                }
+             }  
+
+        });
+    </script>
+</body>
+
+</html>

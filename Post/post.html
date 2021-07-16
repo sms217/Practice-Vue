@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <p>
+            <input ref='focus' type="text" v-model='writer' placeholder="작성자">
+        </p>
+        <p>
+            <textarea v-model='content' placeholder="내용"></textarea>
+        </p>
+        <button @click='save'>등록하기</button>
+        <ul>
+            <li v-for='post in posts'><p>
+                작성자 : {{post.writer}}
+                <p>
+                    내용 : {{post.content}}
+                </p>
+                <hr>
+            </p></li>
+        </ul>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script src="post.js"></script>
+</body>
+</html>

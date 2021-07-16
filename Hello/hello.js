@@ -27,6 +27,8 @@ const app = new Vue({
         values:[],
         lazyValue:'',
         input:'',
+        user_id:'gaga',
+        user_grade:'sophomore'
     },
     methods: {
         onClicked(){
@@ -40,6 +42,20 @@ const app = new Vue({
         },
         sayHi(name){
             this.message2='Hi, '+name;
+        }
+    },
+    computed:{
+        user_info(){
+            return this.user_id+" = {"+this.user_grade+"}";
+        },
+        checkAge(){
+            if(this.age!='' && this.age>0){
+                if(this.age>=20){
+                    return 'adult';
+                }else if(this.age<20&&this.age>13){
+                    return 'teenager';
+                }else return 'kids';
+            }
         }
     }
 });

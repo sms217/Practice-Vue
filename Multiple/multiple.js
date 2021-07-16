@@ -16,7 +16,12 @@ const app = new Vue({
                 this.second=Math.ceil((Math.random()*20));
                 this.value='';
                 this.count++;
-            }else this.result='오답'
+                this.$refs.answer.focus();
+            }else {
+                this.result='오답';
+                this.count=0;
+                this.value='';
+            }
         }
     }
 });
