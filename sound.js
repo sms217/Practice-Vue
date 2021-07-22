@@ -3,7 +3,7 @@ const app = new Vue({
     methods:{
         play(){
             var audio = new Audio();
-            audio.src='./a/ab/addToCart.mp3';
+            audio.src='./addToCart.mp3';
             audio.volume=1;
             audio.play();
         }
